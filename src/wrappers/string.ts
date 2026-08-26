@@ -50,7 +50,9 @@ export class BuryString extends Bury<string> {
    * Req 5.4
    */
   get reverse(): BuryString {
-    return new BuryString([...this._value].reverse().join(''));
+    const segmenter = new Intl.Segmenter();
+    const chars = Array.from(segmenter.segment(this._value), (s) => s.segment);
+    return new BuryString(chars.reverse().join(''));
   }
 
   /**

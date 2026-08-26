@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  },
+  "plugins": [
+    "typescript",
+    "oxc"
+  ],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "typescript/no-floating-promises": "error",
+    "typescript/await-thenable": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-for-in-array": "error",
+    "typescript/restrict-plus-operands": "error",
+    "typescript/no-unnecessary-type-assertion": "warn",
+    "typescript/no-duplicate-type-constituents": "warn",
+    "typescript/no-redundant-type-constituents": "warn",
+    "typescript/no-meaningless-void-operator": "warn"
+  },
+  "ignorePatterns": [
+    "dist/**",
+    "node_modules/**",
+    "docs/**"
+  ]
+}
