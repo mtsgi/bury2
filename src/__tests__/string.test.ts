@@ -54,6 +54,28 @@ describe('BuryString', () => {
       expect(bury('').reverse.value).toBe('');
       expect(bury('a').reverse.value).toBe('a');
     });
+
+    it('handles unicode emojis and grapheme clusters without breaking them', () => {
+      expect(bury('hello 🌸').reverse.value).toBe('🌸 olleh');
+      expect(bury('a👨‍👩‍👧‍👦b').reverse.value).toBe('b👨‍👩‍👧‍👦a');
+    });
+
+    it('falls back to code point iteration when Intl.Segmenter is not available', () => {
+      const originalDesc = Object.getOwnPropertyDescriptor(Intl, 'Segmenter');
+      try {
+        Object.defineProperty(Intl, 'Segmenter', {
+          value: undefined,
+          configurable: true,
+          writable: true,
+        });
+        expect(bury('hello').reverse.value).toBe('olleh');
+        expect(bury('abc').reverse.value).toBe('cba');
+      } finally {
+        if (originalDesc) {
+          Object.defineProperty(Intl, 'Segmenter', originalDesc);
+        }
+      }
+    });
   });
 
   describe('chop', () => {
