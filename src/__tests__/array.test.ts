@@ -78,31 +78,31 @@ describe('BuryArray', () => {
       (arr) => {
         const snapshot = [...arr];
 
-        bury(arr).sort.value;
+        bury(arr).sort.unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).rev.value;
+        bury(arr).rev.unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).compact.value;
+        bury(arr).compact.unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).uniq.value;
+        bury(arr).uniq.unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).map((x) => x).value;
+        bury(arr).map((x) => x).unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).where(() => true).value;
+        bury(arr).where(() => true).unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).append(1).value;
+        bury(arr).append(1).unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).prepend(1).value;
+        bury(arr).prepend(1).unwrap();
         expect(arr).toEqual(snapshot);
 
-        bury(arr).union([]).value;
+        bury(arr).union([]).unwrap();
         expect(arr).toEqual(snapshot);
       }
     ));

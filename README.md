@@ -1,6 +1,7 @@
 # bury2
 
 [![npm version](https://img.shields.io/npm/v/bury2.svg)](https://www.npmjs.com/package/bury2)
+[![CI](https://github.com/mtsgi/bury2/actions/workflows/ci.yml/badge.svg)](https://github.com/mtsgi/bury2/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-brightgreen.svg)](https://mtsgi.github.io/bury2/)
@@ -152,6 +153,30 @@ Dispatches to the appropriate wrapper based on the input type:
 | **Type Safety** | Partial | **Full TypeScript inference** |
 | **Immutability** | Mixed (some methods mutate) | **100% Immutable** |
 | **Callable Getters** | Not available | `.prop` & `.prop()` supported |
+
+---
+
+## 🛠️ Development
+
+```bash
+# Type check
+npm run typecheck
+
+# Lint (Oxlint with Type-Aware rules)
+npm run lint
+
+# Auto-fix lint issues
+npm run lint:fix
+
+# Run tests (Vitest)
+npm run test
+
+# Build library (ESM + CJS + Types)
+npm run build
+
+# Start docs dev server
+npm run docs:dev
+```
 
 ---
 
